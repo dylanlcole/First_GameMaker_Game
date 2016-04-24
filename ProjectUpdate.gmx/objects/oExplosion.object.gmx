@@ -25,9 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_play_sound(aExplode, 1, false)
+            <string>image_speed = 10 / room_speed
+ScreenShake(15)
+audio_play_sound(aExplode, 1, false)
 ExplosionLifeTime = 0.2
 SecondsUntilWeFadeOut = ExplosionLifeTime
+
+
 </string>
           </argument>
         </arguments>
@@ -51,10 +55,12 @@ SecondsUntilWeFadeOut = ExplosionLifeTime
           <argument>
             <kind>1</kind>
             <string>
-image_alpha = SecondsUntilWeFadeOut / ExplosionLifeTime
+//image_alpha = SecondsUntilWeFadeOut / ExplosionLifeTime
 
 SecondsUntilWeFadeOut = SecondsUntilWeFadeOut - 1/room_speed
-if SecondsUntilWeFadeOut &lt; 0 {
+
+//if animation is over
+if image_index + image_speed &gt; image_number - 1 {
     instance_destroy()
 }
 

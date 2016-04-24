@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -59,6 +59,12 @@ if x &lt; 0 or y &lt; 0 or x &gt; room_width or y &gt; room_height {
     instance_destroy()    
 }
 
+//checks to see if we are about to hit a block
+if place_meeting(x + hspeed, y + vspeed, oSolid) {
+    speed = 0
+}
+
+
 Deceleration = 400 / (room_speed * room_speed)
 if speed &gt; Deceleration {
     speed = speed - Deceleration
@@ -70,8 +76,8 @@ if speed &gt; Deceleration {
 EnemyHit = instance_place(x,y,oEnemy)
 
 if instance_exists(EnemyHit) {
-    EnemyHit.x = EnemyHit.x + lengthdir_x(speed, direction)
-    EnemyHit.y = EnemyHit.y + lengthdir_y(speed, direction)
+    EnemyHit.xShunt = lengthdir_x(speed, direction)
+    EnemyHit.yShunt = lengthdir_y(speed, direction)
 }
 
 //Explode when hit

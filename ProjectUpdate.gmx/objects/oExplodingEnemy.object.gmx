@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 90 / room_speed
-direction = random(360)
+            <string>InitializeEnemyCollision(150, random(360))
 </string>
           </argument>
         </arguments>
@@ -53,10 +52,14 @@ direction = random(360)
 image_angle = direction
 
 /* Bouncing */
-BounceOffWalls()
+StayInsideRoom()
+EnemyCollisionWithSolids()
+
+
 
 /* Damage */
 if HitByProjectile() {  //if true
+     ScreenShake(30)
      ExplodeIntoANumberOfChunks(25, oExplodingEnemyChunk)
      audio_play_sound(aExplode, 1, false)
 

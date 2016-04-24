@@ -25,8 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* Enemy Spawning */
-SecondBetweenEnemySpawns = 1
+            <string>ScreenShakeAmount = 0
+
+/* Enemy Spawning */
+SecondBetweenEnemySpawns = 3
 SecondsSinceLastEnemySpawn = 0
 
 
@@ -34,33 +36,6 @@ SecondsSinceLastEnemySpawn = 0
 
 BitsReassembled = 0
 NumberOfBitsThePlayerIsMadeOf = 9
-
-GlobalPlayerX = 0
-GlobalPlayerY = 0
-
-
-/* Screen Bullshit */
-
-window_set_fullscreen(true)
-
-//How big is the screen?
-ScreenWidth = display_get_width()
-ScreenHeight = display_get_height()
-
-//Set size of window - you don't need to do this in full screen
-window_set_size(ScreenWidth,ScreenHeight)
-
-//How much of the room do we want on-screen?
-view_wview = ScreenWidth
-view_hview = ScreenHeight
-
-//How much of our screen do we want that to take up?
-view_wport = ScreenWidth
-view_hport = ScreenHeight
-
-
-//Some weird game maker bullshit
-surface_resize(application_surface,ScreenWidth,ScreenHeight)
 
 
 </string>
@@ -98,21 +73,30 @@ if SecondsSinceLastEnemySpawn &gt;= SecondBetweenEnemySpawns {
         SpawnY = random(room_height)
     }
     
-    instance_create(SpawnX, SpawnY, choose(oShrinkingEnemy, oExplodingEnemy, oExplodingEnemy, oGrowingEnemy))
+    instance_create(SpawnX, SpawnY, choose(oShrinkingEnemy, oExplodingEnemy, oGrowingEnemy))
     SecondsSinceLastEnemySpawn = 0
 }
-
-
-
-//Quit key
-if keyboard_check_pressed(vk_escape) {
-    game_end()
+//If we've been told to shake screen
+if ScreenShakeAmount &gt; 0 {
+//reduce amount each fram
+    ScreenShakeAmount = ScreenShakeAmount - 3
+} else {
+//if we have stabilized or never had screen shake
+    ScreenShakeAmount = 0
+    //position we should be
+    x = view_xview
+    y = view_yview
 }
 
-//Restart key
-if keyboard_check_pressed(ord('R')) {
-    game_restart()
-}
+
+//view position should wobble away from normal position by screen shake amount
+ShakeX = random_range(-ScreenShakeAmount, ScreenShakeAmount)
+ShakeY = random_range(-ScreenShakeAmount, ScreenShakeAmount)
+view_wview = global.ScreenWidth - abs(ShakeX)
+view_hview = global.ScreenHeight - abs(ShakeY)
+view_angle = 0 + (ShakeX)/10
+view_xview = x + ShakeX
+view_yview = y + ShakeY
 </string>
           </argument>
         </arguments>

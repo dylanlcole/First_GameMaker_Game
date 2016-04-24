@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 90 / room_speed
-direction = random(360)
+            <string>image_speed = 10/room_speed
+InitializeEnemyCollision(90, random(360))
 </string>
           </argument>
         </arguments>
@@ -53,7 +53,8 @@ direction = random(360)
 image_angle = direction
 
 /* Bouncing */
-BounceOffWalls()
+StayInsideRoom()
+EnemyCollisionWithSolids()
 
 /* Damage */
 
@@ -62,6 +63,9 @@ if HitByProjectile() {  //if true
     //Shrink ourselves
     image_xscale = image_xscale - 0.2
     image_yscale = image_xscale
+    
+    //Create power up
+    instance_create(x,y,oPowerUp)
     
     //Destroy us if we've shrunk ourselves to oblivion
     if image_xscale &lt;= 0 {

@@ -6,7 +6,9 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\aPlayerDeath</sound>
+    <sound>sound\aShootWav</sound>
     <sound>sound\aShoot</sound>
+    <sound>sound\aBackground</sound>
     <sound>sound\aPlayerAlive</sound>
     <sound>sound\aReassemble</sound>
     <sound>sound\aExplode</sound>
@@ -19,13 +21,19 @@
     <sprite>sprites\sExplodingEnemyChunk</sprite>
     <sprite>sprites\sGrowingEnemyChunk</sprite>
     <sprite>sprites\sPlayer</sprite>
+    <sprite>sprites\sPlayerLowerBody</sprite>
     <sprite>sprites\sPlayerChunk</sprite>
     <sprite>sprites\sBullet</sprite>
+    <sprite>sprites\sBomb</sprite>
+    <sprite>sprites\sBombChunk</sprite>
     <sprite>sprites\sMachineGun</sprite>
     <sprite>sprites\sWaveGun</sprite>
     <sprite>sprites\sExplosion</sprite>
     <sprite>sprites\sSingleShotGun</sprite>
+    <sprite>sprites\sBombGun</sprite>
     <sprite>sprites\sLiquidShot</sprite>
+    <sprite>sprites\sPowerUp</sprite>
+    <sprite>sprites\sSolid</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -33,29 +41,52 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\ExplodeIntoANumberOfChunks.gml</script>
-    <script>scripts\BounceOffWalls.gml</script>
+    <script>scripts\ScreenShake.gml</script>
+    <script>scripts\StayInsideRoom.gml</script>
     <script>scripts\HitByProjectile.gml</script>
+    <script>scripts\SavePlayerData.gml</script>
+    <script>scripts\DisplayWeaponName.gml</script>
+    <script>scripts\LoadPlayerData.gml</script>
+    <script>scripts\InitializeRoom.gml</script>
     <script>scripts\CanBePickedUp.gml</script>
+    <script>scripts\ResetShunts.gml</script>
+    <script>scripts\EnemyCollisionWithSolids.gml</script>
+    <script>scripts\InitializeEnemyCollision.gml</script>
+    <scripts name="Menus">
+      <script>scripts\DrawTextAndUpdateCurrentY.gml</script>
+      <script>scripts\ButtonPressed.gml</script>
+    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fMenu</font>
+    <font>fonts\fTitle</font>
+  </fonts>
   <objects name="objects">
     <object>objects\oGrowingEnemy</object>
     <object>objects\oShrinkingEnemy</object>
+    <object>objects\oSolid</object>
     <object>objects\oExplodingEnemy</object>
     <object>objects\oExplosion</object>
     <object>objects\oBullet</object>
+    <object>objects\oBomb</object>
     <object>objects\oPlayer</object>
     <object>objects\oPlayerChunk</object>
     <object>objects\oExplodingEnemyChunk</object>
     <object>objects\oGrowingEnemyChunk</object>
+    <object>objects\oBombChunk</object>
     <object>objects\oGame</object>
     <object>objects\oProjectile</object>
+    <object>objects\oPowerUp</object>
     <object>objects\oEnemy</object>
+    <object>objects\oMenu</object>
     <object>objects\oWaveGun</object>
     <object>objects\oSingleShotGun</object>
+    <object>objects\oBombGun</object>
     <object>objects\oLiquidShot</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room1</room>
+    <room>rooms\rStart</room>
+    <room>rooms\rGame</room>
   </rooms>
   <constants number="2">
     <constant name="GM_build_date">42010.4518506597</constant>

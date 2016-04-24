@@ -54,7 +54,7 @@ Owner = noone
     
     x = Owner.x
     y = Owner.y
-    image_angle = Owner.image_angle
+    image_angle = Owner.Facing
  
     if Owner.Weapon[Owner.SelectedWeaponIndex] = self.id {
 
@@ -68,7 +68,7 @@ Owner = noone
             MyBullet.speed = random_range(500, 700) / room_speed
             MyBullet.image_angle = MyBullet.direction    
             
-            audio_play_sound(aShoot,1,false)    
+            audio_play_sound(aShootWav,1,false)    
             
         }
         

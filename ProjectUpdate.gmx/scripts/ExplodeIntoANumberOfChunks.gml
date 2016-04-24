@@ -1,3 +1,4 @@
+///ExplodIntoANumberOfChunks(numBits , typChunk )
 NumberOfBitsToCreate = argument0     
 TypeOfChunk = argument1
       

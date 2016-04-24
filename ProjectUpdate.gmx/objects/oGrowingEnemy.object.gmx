@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 90 / room_speed
-direction = point_direction(x,y, oGame.GlobalPlayerX, oGame.GlobalPlayerY)
-
+            <string>InitializeEnemyCollision(80, random(360))
 OriginalScale = image_xscale
 FinalScale = image_xscale*3
 NumberOfChunks = 4
@@ -62,13 +60,16 @@ image_yscale = image_xscale
           <argument>
             <kind>1</kind>
             <string>/* Facing */
-//image_angle = direction
+//direction = point_direction(x,y, oPlayer.x, oPlayer.x)
+image_angle = direction
 
-image_angle = point_direction(x,y, oGame.GlobalPlayerX, oGame.GlobalPlayerY)
+
+//image_angle = point_direction(x,y, oGame.GlobalPlayerX, oGame.GlobalPlayerY)
 direction = image_angle
 
 /* Bouncing */
-BounceOffWalls()
+StayInsideRoom()
+EnemyCollisionWithSolids()
 
 
 //Grow ourselves

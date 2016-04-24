@@ -29,6 +29,8 @@
 if x &lt; 0 or y &lt; 0 or x &gt; room_width or y &gt; room_height {
     instance_destroy()    
 }
+
+if place_meeting(x,y, oSolid) { instance_destroy() }
 </string>
           </argument>
         </arguments>

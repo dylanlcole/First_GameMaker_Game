@@ -30,7 +30,7 @@
 Owner = noone
 
 SecondsBetweenShots = 0.2
-SecondsSinceLastShot = 0
+SecondsSinceLastShot = SecondsBetweenShots
 
 </string>
           </argument>
@@ -48,7 +48,7 @@ SecondsSinceLastShot = 0
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>other</whoName>
+        <whoName>oSingleShotGun</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -58,7 +58,8 @@ SecondsSinceLastShot = 0
     
     x = Owner.x
     y = Owner.y
-    image_angle = Owner.image_angle
+    image_angle = Owner.Facing
+    SecondsBetweenShots = 5 / Owner.Power
      
     if Owner.Weapon[Owner.SelectedWeaponIndex] = self.id {
     
@@ -81,9 +82,9 @@ SecondsSinceLastShot = 0
             Kick = 1000 / room_speed
             KickDirection = image_angle + 180
             
-            Owner.x = Owner.x + lengthdir_x(Kick,KickDirection)
-            Owner.y = Owner.y + lengthdir_y(Kick,KickDirection)    
-            
+            Owner.xShunt = lengthdir_x(Kick,KickDirection)
+            Owner.yShunt = lengthdir_y(Kick,KickDirection)    
+            ScreenShake(5)
             audio_play_sound(aShoot,1,false)    
             
         }   
