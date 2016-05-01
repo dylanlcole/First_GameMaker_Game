@@ -3,6 +3,7 @@ Project used to learn how to make a game in GameMaker Studio
 
 # How to Play
 -Need to have access to GameMaker Studio and open the project within the program
+-http://www.yoyogames.com/studio/download (No Free Version for Mac)
 
 -WASD: move  
 -Left Mouse Click: shoot(when have weapon)  
