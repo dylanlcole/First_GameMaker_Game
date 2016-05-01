@@ -13,6 +13,7 @@ Playable Version: NOEXP
 
 #Objective
 -Kill green enemies by baiting them to eat red enemies and shoot them.
+
 -Clear room of enemies
 
 # References
