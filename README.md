@@ -4,7 +4,7 @@ Playable Version: NOEXP
 
 # How to Play
 -Need to have access to GameMaker Studio and open the project within the program
--http://www.yoyogames.com/studio/download (No Free Version for Mac, Sorry :()
+-http://www.yoyogames.com/studio/download (No Free Version for Mac, Sorry :(  )
 
 -WASD: move  
 -Left Mouse Click: Shoot Rapid Fire Gun 
